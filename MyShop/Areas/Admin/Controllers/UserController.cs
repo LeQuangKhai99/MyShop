@@ -63,6 +63,7 @@ namespace MyShop.Areas.Admin.Controllers
                             if (id > 0)
                             {
                                 // chuyển trang user/index
+                                SetAlert("Tạo User Thành Công", "success");
                                 return RedirectToAction("Index", "User");
                             }
                             else
@@ -130,6 +131,16 @@ namespace MyShop.Areas.Admin.Controllers
         {
             new UserDao().Delete(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new UserDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
     }
 }

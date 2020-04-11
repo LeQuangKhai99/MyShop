@@ -105,9 +105,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\admin\css\custom-style.css" />
     <Content Include="Assets\admin\css\sb-admin-2.css" />
     <Content Include="Assets\admin\css\sb-admin-2.min.css" />
     <Content Include="Assets\admin\img\undraw_posting_photo.svg" />
+    <Content Include="Assets\admin\js\controller\userController.js" />
+    <Content Include="Assets\admin\js\custom-js.js" />
     <Content Include="Assets\admin\js\demo\chart-area-demo.js" />
     <Content Include="Assets\admin\js\demo\chart-bar-demo.js" />
     <Content Include="Assets\admin\js\demo\chart-pie-demo.js" />

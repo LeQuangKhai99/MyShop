@@ -7,6 +7,9 @@
 @section header{
     Danh sách người dùng
 }
+@section jsFooter{
+    <script src="~/Assets/admin/js/controller/userController.js"></script>
+}
 <style>
     .active {
         background-color: #4CAF50;
@@ -65,7 +68,7 @@
                             <td>@item.Address</td>
                             <td>@item.Email</td>
                             <td>@item.Phone</td>
-                            <td>@item.Status</td>
+                            <td><a class="btn-status" href="#" data-id ="@item.ID">@(item.Status?"Kích Hoạt":"Khóa")</a></td>
                             <td>
                                 <a href="/Admin/User/Edit/@item.ID" class="btn btn-primary">Cập nhật</a>
                                 <a onclick="return confirm('Bạn có chắc muốn xóa ?')" href="/Admin/User/Delete/@item.ID" class="btn btn-danger">Xóa</a>

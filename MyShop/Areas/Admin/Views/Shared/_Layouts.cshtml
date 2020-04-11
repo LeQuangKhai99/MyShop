@@ -22,7 +22,7 @@
 
     <!-- Custom styles for this template -->
     <link href="~/Assets/admin/css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link href="~/Assets/admin/css/custom-style.css" rel="stylesheet" />
     <!-- Custom styles for this page -->
     <link href="~/Assets/admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
@@ -50,6 +50,12 @@
 
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">@RenderSection("header", required: true)</h1>
+                    @if (TempData["AlertMessage"] != null)
+                    {
+                        <div id="box-alert" class="alert  @TempData["AlertType"] hide">
+                            @TempData["AlertMessage"]
+                        </div>
+                    }
 
                     <!-- DataTales Example -->
                     @RenderBody()
@@ -91,9 +97,10 @@
         </div>
 
         <!-- Bootstrap core JavaScript-->
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
         <script src="~/Assets/admin/vendor/jquery/jquery.min.js"></script>
         <script src="~/Assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
         <!-- Core plugin JavaScript-->
         <script src="~/Assets/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
         <!-- Page level plugins -->
@@ -103,11 +110,11 @@
         <!-- Page level custom scripts -->
         <script src="~/Assets/admin/js/demo/datatables-demo.js"></script>
         <!-- Custom scripts for all pages-->
-
+        <script src="~/Assets/admin/js/custom-js.js"></script>
         <script src="~/Assets/admin/js/plugins/ckfinder/ckfinder.js"></script>
         <script src="~/Assets/admin/js/plugins/ckeditor/ckeditor.js"></script>
         <script src="~/Assets/admin/js/sb-admin-2.min.js"></script>
-        @RenderSection("jsFooter",required: false)
+        @RenderSection("jsFooter", required: false)
 </body>
 
 </html>
