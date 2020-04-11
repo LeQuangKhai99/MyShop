@@ -51,6 +51,7 @@
                         <th>Địa chỉ</th>
                         <th>Email</th>
                         <th>Số điện thoại</th>
+                        <th>Trạng thái</th>
                         <th>Chức năng</th>
                     </tr>
                 </thead>
@@ -64,6 +65,7 @@
                             <td>@item.Address</td>
                             <td>@item.Email</td>
                             <td>@item.Phone</td>
+                            <td>@item.Status</td>
                             <td>
                                 <a href="/Admin/User/Edit/@item.ID" class="btn btn-primary">Cập nhật</a>
                                 <a onclick="return confirm('Bạn có chắc muốn xóa ?')" href="/Admin/User/Delete/@item.ID" class="btn btn-danger">Xóa</a>

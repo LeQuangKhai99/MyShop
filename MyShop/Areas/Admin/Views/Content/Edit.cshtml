@@ -1,7 +1,7 @@
 ﻿@model Model.EF.Content
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Areas/Admin/Views/Shared/_Layouts.cshtml";
 }
 @section header{
@@ -58,7 +58,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                
+
                 @Html.TextBoxFor(model => model.Image, new { @id = "txtImage", @class = "form-control" })
                 <a id="btnSelectImage" href="#">Chọn ảnh</a>
                 @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
@@ -68,7 +68,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.CategoryID, null,new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.CategoryID, null, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -76,7 +76,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Detail,new { @class = "form-control", @id = "txtDetail"  })
+                @Html.TextAreaFor(model => model.Detail, new { @class = "form-control", @id = "txtDetail" })
                 @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -141,7 +141,7 @@
             @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.CheckBoxFor(model => model.Status, new { @class = "input-custom form-control" })
+                    @Html.EditorFor(model => model.Status)
                     @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                 </div>
             </div>
