@@ -15,6 +15,15 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script type="text/javascript" src="~/Assets/client/js/move-top.js"></script>
     <script type="text/javascript" src="~/Assets/client/js/easing.js"></script>
     <script type="text/javascript" src="~/Assets/client/js/startstop-slider.js"></script>
+
+    <link href="~/Assets/client/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script type="text/javascript" src="~/Assets/client/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="~/Assets/client/js/move-top.js"></script>
+    <script type="text/javascript" src="~/Assets/client/js/easing.js"></script>
+    <script src="~/Assets/client/js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <link href="~/Assets/client/css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="~/Assets/client/css/global.css">
+    <script src="~/Assets/client/js/slides.min.jquery.js"></script>
 </head>
 <body>
     <div class="wrap">
@@ -22,13 +31,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             @RenderPage("_Header.cshtml")
             <div class="header_slide">
                 @RenderSection("slide", required: false)
-                
+
                 <div class="clear"></div>
             </div>
-            
+
         </div>
 
         @RenderBody()
+    </div>
     </div>
     @{ Html.RenderAction("Footer", "Home"); }
     <script type="text/javascript">

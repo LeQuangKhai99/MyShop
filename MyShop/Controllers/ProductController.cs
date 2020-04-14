@@ -31,6 +31,8 @@ namespace MyShop.Controllers
         public ActionResult Detail(long productId = 1)
         {
             var product = new ProductDao().GetProductById(productId);
+            ViewBag.category = new ProductCategoryDao().ViewDetail(product.CategoryID.Value);
+            ViewBag.relate = new ProductDao().ListRelateProduct(product.ID, 4);
             return View(product);
         }
     }

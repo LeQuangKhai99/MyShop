@@ -88,7 +88,7 @@
 .button {
 	margin-top:20px;
 	display: inline-block;
-	background:#CD1F25;
+	
 	color: #FFF;
 	text-decoration: none;
 	border-radius:5px;
@@ -100,7 +100,7 @@
 }
 .button:hover {
 	text-shadow: 0px 1px 1px #000;
-	background:#CD1F25;
+
 	 -webkit-transform:scale(1.05);
     -moz-transform:scale(1.05);
     -ms-transform:scale(1.05);

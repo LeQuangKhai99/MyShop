@@ -529,6 +529,7 @@ body {
 .back-links {
 	float: left;
 	padding-top: 5px;
+	width: 100%;
 }
 .back-links p {
 	font-size: 0.8125em;
@@ -597,7 +598,8 @@ body {
 	padding: 1.5%;
 }
 .images_3_of_2  img {
-	max-width: 100%;
+	width: 80%;
+	margin-right: 50px;
 }
 .span_3_of_2  h2 {
 	font-family: 'ambleregular';
