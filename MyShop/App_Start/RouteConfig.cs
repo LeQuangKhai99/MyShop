@@ -34,6 +34,41 @@ namespace MyShop
             );
 
             routes.MapRoute(
+                name: "Add Cart",
+                url: "them-gio-hang",
+                defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Delete",
+                url: "xoa-san-pham-{idProduct}",
+                defaults: new { controller = "Cart", action = "Delete", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Pay",
+                url: "thanh-toan",
+                defaults: new { controller = "Cart", action = "Pay", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Success",
+                url: "hoan-thanh",
+                defaults: new { controller = "Cart", action = "Success", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Contact",
+                url: "lien-he",
+                defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },

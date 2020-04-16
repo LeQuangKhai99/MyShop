@@ -1,0 +1,53 @@
+﻿@model List<MyShop.Models.CartItem>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section jsFooter{
+
+    <script src="~/Assets/client/js/custom.js"></script>
+}
+@if (TempData["Cart"] != null)
+{
+    <div id="box-alert" class="alert-success alert hide">
+        @TempData["Cart"]
+    </div>
+}
+@using (Html.BeginForm("Update", "Cart", FormMethod.Post))
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Ảnh sản phẩm</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Đơn giá</th>
+                <th scope="col">Thành tiền</th>
+                <th scope="col">Xóa</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var price = item.product.PromotionPrice != null ? item.product.PromotionPrice : item.product.Price;
+                var total = price * item.Quantity;
+                <tr>
+                    <th>@item.product.ID</th>
+                    <th>@item.product.Name</th>
+                    <th><img style="width: 100px; height:100px" src="@item.product.Image" alt="Alternate Text" /></th>
+                    <th><input type="number" min="1" max="10" name="quantity" data-id="@item.product.ID" value="@item.Quantity" /></th>
+                    <th>@price.Value.ToString("N0")</th>
+                    <th>@total.Value.ToString("N0")</th>
+                    <th><a onclick="return confirm('Bạn có chắc muốn xóa?')" href="/xoa-san-pham-@item.product.ID">Xóa Sản Phẩm</a></th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+    <button id="btn-continue" type="button" class="btn btn-primary">Tiếp tục mua hàng</button>
+    <button id="btn-update" type="submit" class="btn btn-secondary">Cập nhật giỏ hàng</button>
+    <button id="btn-delete" type="button" class="btn btn-success">Xóa giỏ hàng</button>
+    <a href="/thanh-toan" id="btn-pay" type="button" class="btn btn-danger">Thanh toán</a>
+}

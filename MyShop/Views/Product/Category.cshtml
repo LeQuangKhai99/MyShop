@@ -1,11 +1,89 @@
-﻿@model Model.EF.ProductCategory
+﻿@model List<Model.ViewModel.ProductViewModel>
 @{
     ViewBag.Title = "Category";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    int totalProduct = ViewBag.total;
+
+    int totalPage = ViewBag.totalPage;
+    int page = ViewBag.page;
+    if (page > totalPage)
+    {
+        page = 1;
+    }
 }
 
-@if (@Model != null)
-{
-    <h2>@Model.Name</h2>
-}
+<div class="content">
+    <div class="content_top">
+        <div class="heading">
+            <h3>@ViewBag.cate</h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @foreach (var item in Model)
+        {
+            <div class="grid_1_of_4 images_1_of_4">
+                <a href="preview.html"><img src="@item.Images" alt="" /></a>
+                <h2>@item.Name </h2>
+                <span>@item.CateName</span>
+                <div class="price-details">
+                    <div class="price-number">
+                        @if (item.PromotionPrice != null)
+                        {
+                            <p><span class="rupees"><strike>@item.Price.Value.ToString("N0")</strike></span></p>
+                            <p><span class="rupees">@item.PromotionPrice.Value.ToString("N0")</span></p>
+                        }
+                        else
+                        {
+                            <p><span class="rupees">@item.Price.Value.ToString("N0")</span></p>
+                        }
+                    </div>
+                    <div class="add-cart">
+                        <h4><a href="/chi-tiet/@item.MetaTitle-@item.ID">Add to Cart</a></h4>
+                    </div>
+                    <div class="clear"></div>
+                </div>
 
+            </div>
+        }
+
+
+    </div>
+    <!--Phân Trang-->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            @{
+                string url = @ViewBag.url + "?page=";
+                int next = page + 1;
+                int pre = page - 1;
+            }
+            @if (totalPage == 1)
+            {
+
+                <li class="page-item"><a class="active page-link" href="#">@page</a></li>
+            }
+            else
+            {
+                if (totalPage != page)
+                {
+                    if (page == 1)
+                    {
+                        <li class="page-item"><a class="page-link active" href="#">@page</a></li>
+                        <li class="page-item"><a class="page-link" href="@url@next">Next</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" href="@url@pre">Previous</a></li>
+                        <li class="page-item"><a class="active page-link" href="#">@page</a></li>
+                        <li class="page-item"><a class="page-link" href="@url@next">Next</a></li>
+                    }
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link" href="@url@pre">Previous</a></li>
+                    <li class="page-item"><a class="active page-link" href="#">@page</a></li>
+                }
+            }
+        </ul>
+    </nav>
+</div>

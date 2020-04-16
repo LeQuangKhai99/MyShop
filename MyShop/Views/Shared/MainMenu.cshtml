@@ -1,7 +1,7 @@
 ﻿
 @model List<Model.EF.Menu>
 <div class="menu">
-    <ul>
+    <ul style="margin-bottom: 0">
         @foreach (var item in Model)
         {
             <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
