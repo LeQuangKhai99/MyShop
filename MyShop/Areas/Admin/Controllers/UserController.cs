@@ -33,8 +33,8 @@ namespace MyShop.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new UserDao();
-                var isset = dao.CheckIssetUserName(user);
-                if(isset == 1)
+                var isset = dao.CheckIssetUserName(user.UserName);
+                if(isset)
                 {
                     var check = dao.CheckInsert(user);
                     switch (check)

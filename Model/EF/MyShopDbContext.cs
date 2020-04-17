@@ -139,5 +139,6 @@ namespace Model.EF
                 .IsUnicode(false);
 
         }
+
     }
 }

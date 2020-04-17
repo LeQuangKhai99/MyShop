@@ -28,15 +28,18 @@ namespace Model.Dao
             return model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-        public int CheckIssetUserName(User user)
+        public bool CheckIssetUserName(string username)
         {
-            var data = db.Users.SingleOrDefault(x => x.UserName == user.UserName);
-            if (data != null)
-            {
-                return 0;
-            }
-            return 1;
+            var data = db.Users.Count(x => x.UserName == username) > 0;
+            return data;
         }
+
+        public bool CheckIssetEmail(string email)
+        {
+            var data = db.Users.Count(x => x.Email == email) > 0;
+            return data;
+        }
+
         public int CheckInsert(User user)
         {
             if (string.IsNullOrEmpty(user.Name))

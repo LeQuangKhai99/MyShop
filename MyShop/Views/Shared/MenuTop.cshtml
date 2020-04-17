@@ -5,10 +5,21 @@
         </div>
         <div class="account_desc">
             <ul>
-                @foreach (var item in Model)
+                @{
+                    var session = (UserLogin)Session[MyShop.Common.Constants.USER_SESSION];
+                }
+                @if (Session[MyShop.Common.Constants.USER_SESSION] != null)
                 {
-                    <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
-                    
+                    <li><a href="#">@session.UserName</a></li>
+                    <li><a href="/dang-xuat">Đăng Xuất</a></li>
+                }
+                else
+                {
+                    foreach (var item in Model)
+                    {
+                        <li><a href="@item.Link" target="@item.Target">@item.Text</a></li>
+
+                    }
                 }
 
             </ul>

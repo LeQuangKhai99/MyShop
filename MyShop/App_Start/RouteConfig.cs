@@ -11,6 +11,7 @@ namespace MyShop
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
@@ -67,6 +68,28 @@ namespace MyShop
                 defaults: new { controller = "Home", action = "Contact", id = UrlParameter.Optional },
                 namespaces: new[] { "MyShop.Controllers" }
             );
+
+            routes.MapRoute(
+                name: "Register",
+                url: "dang-ki",
+                defaults: new { controller = "Login", action = "Register", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Login",
+                url: "dang-nhap",
+                defaults: new { controller = "Login", action = "Login", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Logout",
+                url: "dang-xuat",
+                defaults: new { controller = "Login", action = "Logout", id = UrlParameter.Optional },
+                namespaces: new[] { "MyShop.Controllers" }
+            );
+
 
             routes.MapRoute(
                 name: "Default",
